@@ -78,6 +78,13 @@ class User
         return $this->httpClient->get($uri, ['department_id' => $departmentId, 'fetch_child' => (int)$fetchChild]);
     }
 
+    public function list2(int $departmentId, bool $fetchChild = false, bool $needDetail = false): array
+    {
+        $uri = 'user/' . ($needDetail ? 'list' : 'simplelist');
+
+        return $this->httpClient->get($uri, ['department_id' => $departmentId, 'fetch_child' => (int)$fetchChild]);
+    }
+
     /**
      * userid转openid
      *
